@@ -3,6 +3,7 @@ import { useState } from "react";
 import Axios from "axios";
 import "./InputText.css";
 import { Card, ListGroup, ListGroupItem } from "react-bootstrap";
+import { Spinner } from 'react-bootstrap';
 
 export default function Home() {
   const [apiId, setApiId] = useState("");
@@ -71,5 +72,6 @@ export default function Home() {
         )}
       </div>
     </div>
+    
   );
 }
