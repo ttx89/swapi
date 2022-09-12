@@ -8,8 +8,6 @@ import Planets from './Components/Planets';
 import Starships from './Components/Starships';
 import Container from 'react-bootstrap/Container';
 import { Button, Spinner } from 'react-bootstrap';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 <link
   rel="stylesheet"
