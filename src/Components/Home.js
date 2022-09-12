@@ -18,20 +18,24 @@ export default function Home() {
   });
 
   const searchApi = () => {
-    Axios.get(`https://swapi.dev/api/people/${apiId}`).then(
-      (response) => {
-        setApi({
-          name: response.data.name,
-          height: response.data.height,
-          mass: response.data.mass,
-          hair_color: response.data.hair_color,
-          skin_color: response.data.skin_color,
-          eye_color: response.data.eye_color,
-          birth_year: response.data.birth_year,
-        });
-        setApiChosen(true);
+    Axios.get(`https://swapi.dev/api/people/`).then((response) => {
+      if (apiId <= 0 || apiId > response.data.count) {
+        setApiChosen(false);
       }
-    );
+    });
+
+    Axios.get(`https://swapi.dev/api/people/${apiId}`).then((response) => {
+      setApi({
+        name: response.data.name,
+        height: response.data.height,
+        mass: response.data.mass,
+        hair_color: response.data.hair_color,
+        skin_color: response.data.skin_color,
+        eye_color: response.data.eye_color,
+        birth_year: response.data.birth_year,
+      });
+      setApiChosen(true);
+    });
   };
 
   return (
@@ -48,7 +52,7 @@ export default function Home() {
       </div>
       <div className="DisplaySection">
         {!apiChosen ? (
-          <h1>Please choose a ID number</h1>
+          <h1>Please choose a valid ID number</h1>
         ) : (
           <>
             <Card style={{ width: "18rem" }}>
